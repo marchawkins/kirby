@@ -343,6 +343,18 @@ class ATest extends TestCase
 		$expected = ['a' => ['d', 'e', 'f']];
 		$result   = A::merge($a, $b, A::MERGE_REPLACE);
 		$this->assertSame($expected, $result);
+
+		$a        = ['a' => ['b' => ['c', 'd', 'e']], 'q' => 'p'];
+		$b        = ['a' => ['b' => ['x', 'y', 'z']]];
+		$expected = ['a' => ['b' => ['x', 'y', 'z']], 'q' => 'p'];
+		$result   = A::merge($a, $b, A::MERGE_REPLACE);
+		$this->assertSame($expected, $result);
+
+		$a        = ['a' => ['c' => 1, 'd' => 2, 'e' => 3]];
+		$b        = ['a' => ['x' => 4, 'y' => 5, 'z' => 6]];
+		$expected = ['a' => ['x' => 4, 'y' => 5, 'z' => 6]];
+		$result   = A::merge($a, $b, A::MERGE_REPLACE);
+		$this->assertSame($expected, $result);
 	}
 
 	/**

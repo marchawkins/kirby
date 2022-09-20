@@ -173,18 +173,20 @@ class A
 		$join   = array_shift($arrays);
 
 		if (
-			static::isAssociative($merged) === false &&
-			$mode === static::MERGE_REPLACE
+			$mode === static::MERGE_REPLACE &&
+			(
+				static::isAssociative($merged) === false ||
+				(count(A::filter($merged, fn ($x) => is_array($x))) === 0)
+			)
 		) {
 			$merged = $join;
-
 		} else {
 
 			foreach ($join as $key => $value) {
 				// append to the merged array, don't overwrite numeric keys
 				if (
-					is_int($key) === true &&
-					$mode === static::MERGE_APPEND
+					$mode === static::MERGE_APPEND &&
+					is_int($key) === true
 				) {
 					$merged[] = $value;
 
