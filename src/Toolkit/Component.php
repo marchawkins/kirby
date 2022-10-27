@@ -18,6 +18,7 @@ use TypeError;
  * @copyright Bastian Allgeier
  * @license   https://opensource.org/licenses/MIT
  */
+#[AllowDynamicProperties]
 class Component
 {
 	/**
