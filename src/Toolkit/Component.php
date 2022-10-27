@@ -2,6 +2,7 @@
 
 namespace Kirby\Toolkit;
 
+use AllowDynamicProperties;
 use ArgumentCountError;
 use Closure;
 use Kirby\Exception\Exception;
