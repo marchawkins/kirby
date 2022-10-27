@@ -572,6 +572,7 @@ class ParsedownExtra extends Parsedown
 
         # http://stackoverflow.com/q/11309194/200145
         $elementMarkup = htmlentities($elementMarkup);
+		$elementMarkup = htmlspecialchars_decode($elementMarkup);
 
         # Ensure that saveHTML() is not remove new line characters. New lines will be split by this character.
         $DOMDocument->formatOutput = true;

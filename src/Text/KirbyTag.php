@@ -2,6 +2,7 @@
 
 namespace Kirby\Text;
 
+use AllowDynamicProperties;
 use Closure;
 use Kirby\Cms\App;
 use Kirby\Cms\File;
@@ -20,6 +21,7 @@ use Kirby\Uuid\Uuid;
  * @copyright Bastian Allgeier
  * @license   https://opensource.org/licenses/MIT
  */
+#[AllowDynamicProperties]
 class KirbyTag
 {
 	public static array $aliases = [];
