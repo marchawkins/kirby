@@ -13,6 +13,7 @@ class FTest extends TestCase
 {
 	protected $fixtures;
 	protected $hasErrorHandler = false;
+	protected $sample;
 	protected $test;
 	protected $tmp;
 
