@@ -34,7 +34,7 @@ class SimpleImage {
     ERR_WRITE = 11,
     ERR_INVALID_FLAG = 12;
 
-
+  protected $flags;
   protected $image;
   protected $mimeType;
   protected $exif;
@@ -63,7 +63,7 @@ class SimpleImage {
     $this->flags = [
       "sslVerify" => true // Skip SSL peer validation
     ];
-    
+
     // Override default flag values.
     foreach($flags as $flag => $value) {
       $this->setFlag($flag, $value);
@@ -206,7 +206,7 @@ class SimpleImage {
         $alpha = imagecolorallocatealpha($gif, 0, 0, 0, 127);
         imagecolortransparent($gif, $alpha);
         imagefill($gif, 0, 0, $alpha);
-        
+
         imagecopy($this->image, $gif, 0, 0, 0, 0, $width, $height);
         imagedestroy($gif);
         break;
